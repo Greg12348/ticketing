@@ -24,7 +24,7 @@ spec:
   selector:
     app: payments-mongo
   ports:
-    - name: DB
+    - name: db
       protocol: TCP
       port: 27017
       targetPort: 27017
