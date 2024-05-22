@@ -5,12 +5,13 @@ manifests:
     - ./infra/k8s/*
     - ./infra/k8s-dev/*
 build:
-  # local:
-  #   push: false
-  googleCloudBuild:
-    projectId: ticketing-dev-422614
+  local:
+    push: false
+  # googleCloudBuild:
+  #   projectId: ticketing-dev-422614
   artifacts:
-    - image: us.gcr.io/ticketing-dev-422614/auth
+    # - image: us.gcr.io/ticketing-dev-422614/auth
+    - image: greg12348/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -18,7 +19,8 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-dev-422614/client
+    # - image: us.gcr.io/ticketing-dev-422614/client
+    - image: greg12348/client
       context: client
       docker:
         dockerfile: Dockerfile
@@ -26,7 +28,8 @@ build:
         manual:
           - src: '**/*.js'
             dest: .
-    - image: us.gcr.io/ticketing-dev-422614/tickets
+    # - image: us.gcr.io/ticketing-dev-422614/tickets
+    - image: greg12348/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
@@ -34,7 +37,8 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-dev-422614/orders
+    # - image: us.gcr.io/ticketing-dev-422614/orders
+    - image: greg12348/orders
       context: orders
       docker:
         dockerfile: Dockerfile
@@ -42,7 +46,8 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-dev-422614/expiration
+    # - image: us.gcr.io/ticketing-dev-422614/expiration
+    - image: greg12348/expiration
       context: expiration
       docker:
         dockerfile: Dockerfile
@@ -50,7 +55,8 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-dev-422614/payments
+    # - image: us.gcr.io/ticketing-dev-422614/payments
+    - image: greg12348/payments
       context: payments
       docker:
         dockerfile: Dockerfile
